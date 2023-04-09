@@ -6,8 +6,6 @@ Module.register("MMM-ScreenControl", {
 	},
 
 	start: function () {
-		setTimeout(() => {
-			this.sendSocketNotification('Toggle', this.config);
-		}, this.config.updateInterval * 1000);
+		this.sendSocketNotification('Toggle', this.config);
 	},
 });
