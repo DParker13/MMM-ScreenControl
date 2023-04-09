@@ -6,8 +6,6 @@ module.exports = NodeHelper.create({
   python_toggle: function () {
     const self = this;
     const pyshell = new PythonShell('modules/' + this.name + '/gpiocontrol/gpiocontrol.py', { mode: 'json', args: [JSON.stringify(this.config)]});
-    console.log('modules/' + this.name + '/gpiocontrol/gpiocontrol.py');
-    console.log(JSON.stringify(this.config));
     pyshell.on('message', function (message) {
       if (message.hasOwnProperty('status'))
       {
@@ -25,6 +23,7 @@ module.exports = NodeHelper.create({
   socketNotificationReceived: function(notification, payload) {
     if(notification === 'Toggle')
     {
+      this.config = payload;
       this.python_toggle(this.config);
     };
   }
