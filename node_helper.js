@@ -1,5 +1,5 @@
 const NodeHelper = require('node_helper');
-const PythonShell = require('python-shell');
+const {PythonShell} = require('python-shell');
 
 module.exports = NodeHelper.create({
   
