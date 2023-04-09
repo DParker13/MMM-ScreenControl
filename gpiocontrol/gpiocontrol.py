@@ -1,7 +1,7 @@
 from time import sleep
 import RPi.GPIO as GPIO
 import config
-
+GPIO.Setmode(GPIO.BOARD)
 
 def flipSwitch():
     GPIO.output(config.get("gpio_pin"), GPIO.LOW)
