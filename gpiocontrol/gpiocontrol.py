@@ -17,12 +17,12 @@ while(True):
     current_time = time.strftime("%H%M", t)
     
     #Turn screen on
-    if str(config.get("off_time")) > current_time > str(config.get("on_time")) and isOn is False:
+    if config.get("off_time") > int(current_time) > config.get("on_time") and isOn is False:
         toggle()
         isOn = True
 
     #Turn screen off
-    if current_time > str(config.get("off_time")) and isOn:
+    if int(current_time) > config.get("off_time") and isOn:
         toggle()
         isOn = False
     
